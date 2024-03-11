@@ -11,6 +11,6 @@ I have tested on following environment, you can use different one but I cannot g
 
 ## Sepolia
 
-1. update `hosts.ini` file, update your remote ip and eth sepolia rpc endpoint there
+1. update `hosts.ini` file, add your remote ip and eth sepolia rpc endpoint there
 2. install docker and docker-compose by `ansible-playbook playbooks/docker.yaml`
 3. spin up your sepolia rpc by `ansible-playbook playbooks/sepolia.yaml`

@@ -1,5 +1,5 @@
 - name: Sepolia node
-  hosts: all
+  hosts: sepolia
   become: true
   gather_facts: false
   tasks:
