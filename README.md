@@ -7,6 +7,7 @@ I have tested on following environment, you can use different one but I cannot g
 1. Ubunut 22.04 LTS
 2. AWS c5.xlarge with ipv4 network
 3. Ansible 9.3.0 and Python 3.12.2
+4. 20Gb free disk
 
 ## Sepolia
 

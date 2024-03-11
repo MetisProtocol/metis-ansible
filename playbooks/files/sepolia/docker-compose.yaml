@@ -9,14 +9,13 @@ services:
     network_mode: host
     env_file:
       - l1dtl.env
-      - .env
     healthcheck:
       test: ["CMD-SHELL", "curl http://127.0.0.1:7878"]
       interval: 5s
       timeout: 5s
       retries: 5
     volumes:
-      - /data/l1dtl:/data
+      - {{ SEPOLIA_PATH }}/l1dtl:/data
     logging:
       driver: json-file
       options:
@@ -44,7 +43,7 @@ services:
     env_file:
       - l2geth.env
     volumes:
-      - /data/sepolia-l2geth:/root/.ethereum
+      - {{ SEPOLIA_PATH }}/l2geth:/root/.ethereum
     logging:
       driver: json-file
       options:
