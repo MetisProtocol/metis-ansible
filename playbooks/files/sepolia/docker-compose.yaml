@@ -36,10 +36,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    ports:
-      - 8545:8545
-      - 30303:30303
-      - 30303:30303/udp
     env_file:
       - l2geth.env
     volumes:
