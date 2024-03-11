@@ -1,0 +1,20 @@
+- name: Sepolia node
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Copy docker-compose file
+      ansible.builtin.template:
+        src: "{{ item }}"
+        dest: /opt/metis/sepolia/
+        mode: "0664"
+      loop: "{{ lookup('fileglob', 'sepolia/*', wantlist=True) }}"
+      notify: Start sepolia
+
+  handlers:
+    - name: Start geth
+      changed_when: false
+      ansible.builtin.shell: |
+        docker compose down && docker compose up -d
+      args:
+        chdir: /opt/metis/sepolia

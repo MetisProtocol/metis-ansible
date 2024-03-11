@@ -1,0 +1,29 @@
+- name: Install tools
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Add docker gpg
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        keyring: /etc/apt/keyrings/docker.gpg
+    - name: Add docker repository
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable"
+        state: present
+    - name: Install packages
+      ansible.builtin.apt:
+        state: present
+        update_cache: true
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+          - jq
+    - name: Add the ssh user to group docker
+      ansible.builtin.user:
+        name: "{{ ansible_ssh_user }}"
+        groups: docker
+        append: true
