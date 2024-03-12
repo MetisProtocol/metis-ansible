@@ -23,7 +23,7 @@ services:
         max-file: 10
 
   l2geth:
-    image: ericlee42/metis:l2geth-2
+    image: ericlee42/metis:l2geth-3
     pull_policy: always
     container_name: l2geth
     restart: unless-stopped
