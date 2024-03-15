@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   l1dtl:
-    image: ericlee42/metis:dtl-2
+    image: ericlee42/metis:dtl-3
     pull_policy: always
     container_name: l1dtl
     restart: unless-stopped
@@ -23,7 +23,7 @@ services:
         max-file: 10
 
   l2geth:
-    image: ericlee42/metis:l2geth-3
+    image: ericlee42/metis:l2geth-5
     pull_policy: always
     container_name: l2geth
     restart: unless-stopped
