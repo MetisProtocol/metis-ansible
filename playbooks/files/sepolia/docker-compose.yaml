@@ -2,8 +2,7 @@ version: "3.9"
 
 services:
   l1dtl:
-    image: ericlee42/metis:dtl-3
-    pull_policy: always
+    image: metisdao/dtl:v0.0.1
     container_name: l1dtl
     restart: unless-stopped
     network_mode: host
@@ -23,8 +22,7 @@ services:
         max-file: 10
 
   l2geth:
-    image: ericlee42/metis:l2geth-5
-    pull_policy: always
+    image: metisdao/l2geth:v0.0.2
     container_name: l2geth
     restart: unless-stopped
     network_mode: host
