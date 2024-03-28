@@ -14,3 +14,4 @@ I have tested on following environment, you can use different one but I cannot g
 1. update `hosts.ini` file, add your remote ip and eth sepolia rpc endpoint there
 2. install docker and docker-compose by `ansible-playbook playbooks/docker.yaml`
 3. spin up your sepolia rpc by `ansible-playbook playbooks/sepolia.yaml`
+4. install docker-autoheal by `ansible-playbook playbooks/autoheal.yaml`

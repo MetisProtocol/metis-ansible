@@ -1,0 +1,9 @@
+- name: Install docker autoheal
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Start autoheal
+      changed_when: false
+      ansible.builtin.shell: |
+        docker run -d --name autoheal --restart=always -e AUTOHEAL_CONTAINER_LABEL=all -v /var/run/docker.sock:/var/run/docker.sock willfarrell/autoheal
