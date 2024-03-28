@@ -1,4 +1,4 @@
-version: "3.9"
+name: metis-sepolia
 
 services:
   l1dtl:
@@ -6,6 +6,7 @@ services:
     container_name: l1dtl
     restart: unless-stopped
     network_mode: host
+    stop_grace_period: 30s
     env_file:
       - l1dtl.env
     healthcheck:
@@ -13,8 +14,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+      start_period: 5s
     volumes:
-      - {{ SEPOLIA_PATH }}/l1dtl:/data
+      - "{{ SEPOLIA_PATH }}/l1dtl:/data"
     logging:
       driver: json-file
       options:
@@ -22,22 +24,24 @@ services:
         max-file: 10
 
   l2geth:
-    image: metisdao/l2geth:v0.0.2
+    image: metisdao/l2geth:v0.0.3
     container_name: l2geth
     restart: unless-stopped
     network_mode: host
+    stop_grace_period: 30s
     depends_on:
       l1dtl:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl http://localhost:8545"]
-      interval: 10s
+      test: ["CMD-SHELL", "is-l2geth-stalled"]
+      interval: 30s
       timeout: 5s
-      retries: 5
+      retries: 3
+      start_period: 30s
     env_file:
       - l2geth.env
     volumes:
-      - {{ SEPOLIA_PATH }}/l2geth:/root/.ethereum
+      - "{{ SEPOLIA_PATH }}/l2geth:/root/.ethereum"
     logging:
       driver: json-file
       options:

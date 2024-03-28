@@ -1,4 +1,4 @@
-- name: Sepolia node
+- name: Metis Sepolia node
   hosts: sepolia
   become: true
   gather_facts: false
@@ -9,12 +9,12 @@
         dest: /opt/metis/sepolia/
         mode: "0664"
       loop: "{{ lookup('fileglob', 'sepolia/*', wantlist=True) }}"
-      notify: Start sepolia
+      notify: Start l2geth
 
   handlers:
-    - name: Start geth
+    - name: Start l2geth
       changed_when: false
       ansible.builtin.shell: |
-        docker compose down && docker compose up -d
+        docker compose pull && docker compose down && docker compose up -d
       args:
         chdir: /opt/metis/sepolia

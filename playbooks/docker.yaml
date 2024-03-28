@@ -1,5 +1,5 @@
 - name: Install tools
-  hosts: sepolia
+  hosts: all
   become: true
   gather_facts: false
   tasks:
