@@ -1,0 +1,49 @@
+name: metis-andromeda
+
+services:
+  l1dtl:
+    image: metisdao/dtl:v0.0.2
+    container_name: l1dtl
+    restart: unless-stopped
+    network_mode: host
+    stop_grace_period: 30s
+    env_file:
+      - l1dtl.env
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://127.0.0.1:7878"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    volumes:
+      - "{{ ANDROMEDA_PATH }}/l1dtl:/data"
+    logging:
+      driver: json-file
+      options:
+        max-size: 2m
+        max-file: 10
+
+  l2geth:
+    image: metisdao/l2geth:v0.0.4
+    container_name: l2geth
+    restart: unless-stopped
+    network_mode: host
+    stop_grace_period: 30s
+    depends_on:
+      l1dtl:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "is-l2geth-stalled"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    env_file:
+      - l2geth.env
+    volumes:
+      - "{{ ANDROMEDA_PATH }}/l2geth:/root/.ethereum"
+    logging:
+      driver: json-file
+      options:
+        max-size: 2m
+        max-file: 10
