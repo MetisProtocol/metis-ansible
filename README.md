@@ -36,6 +36,12 @@ snap-0382a5d7113eed8ff
 
 You can use the snapshots on aws us-east-1 region, and copy them to another region you are using.
 
+**Don't forget to delete the nodekey if it exists**
+
+```
+$ rm -rf path-to-l2geth/geth/nodekey
+```
+
 ## Sepolia
 
 ### Recommened hardware
