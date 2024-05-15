@@ -26,13 +26,13 @@
 
 We provided public aws ebs snapshot for you if you need them.
 
-l1dtl
-
-snap-052e67eaa50dd7e84
-
 l2geth
 
-snap-0382a5d7113eed8ff
+snap-0a907085eb3484f48
+
+l1dtl
+
+snap-048e442e36aac56d2
 
 You can use the snapshots on aws us-east-1 region, and copy them to another region you are using.
 
