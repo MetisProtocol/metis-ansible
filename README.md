@@ -53,4 +53,14 @@ You can use the snapshots on aws **us-east-2** region, and copy them to another 
 
 ### Snapshot
 
-No snapshot for now
+We provided public aws ebs snapshot for you if you need them.
+
+l2geth
+
+snap-07ed6398665bf62da
+
+l1dtl
+
+vol-02478ee8fbc049106
+
+You can use the snapshots on aws **us-east-1** region, and copy them to another region you are using.
