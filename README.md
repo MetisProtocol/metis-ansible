@@ -28,19 +28,13 @@ We provided public aws ebs snapshot for you if you need them.
 
 l2geth
 
-snap-0a907085eb3484f48
+snap-0cffd87f09b9a723d
 
 l1dtl
 
-snap-048e442e36aac56d2
+snap-040379f7ef7beb2c0
 
-You can use the snapshots on aws us-east-1 region, and copy them to another region you are using.
-
-**Don't forget to delete the nodekey if it exists**
-
-```
-$ rm -rf path-to-l2geth/geth/nodekey
-```
+You can use the snapshots on aws **us-east-2** region, and copy them to another region you are using.
 
 ## Sepolia
 
