@@ -73,6 +73,20 @@ Use `DATA_TRANSPORT_LAYER__SYNC_L1_BATCH=true` env value in your dtl service ins
 
 By the way, you have to re-sync the data if you don't use it at first.
 
-2. `panic: Refund counter below zero`
+2. l2geth `panic: Refund counter below zero`
+
+It can happen when you have a new instace without the snapshots.
 
 You can add `--cache.noprefetch=true` argument to your l2geth service
+
+
+3. How to update the default rpc port
+
+if you don't want to use the default 8545 port, you need to update the `LOCAL_L2_CLIENT_HTTP` env as well.
+
+e.g. if you want to use 8549 instead.
+
+```
+RPC_PORT=8549
+LOCAL_L2_CLIENT_HTTP=http://localhost:8549
+```
