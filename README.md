@@ -64,3 +64,15 @@ l1dtl
 vol-02478ee8fbc049106
 
 You can use the snapshots on aws **us-east-1** region, and copy them to another region you are using.
+
+## FAQ
+
+1. How to enable `finalized` param in the `eth_getBlockByNumber` rpc call and so on?
+
+Use `DATA_TRANSPORT_LAYER__SYNC_L1_BATCH=true` env value in your dtl service instead.
+
+By the way, you have to re-sync the data if you don't use it at first.
+
+2. `panic: Refund counter below zero`
+
+You can add `--cache.noprefetch=true` argument to your l2geth service
