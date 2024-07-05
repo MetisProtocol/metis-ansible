@@ -79,7 +79,6 @@ It can happen when you have a new instace without the snapshots.
 
 You can add `--cache.noprefetch=true` argument to your l2geth service
 
-
 3. How to update the default rpc port
 
 if you don't want to use the default 8545 port, you need to update the `LOCAL_L2_CLIENT_HTTP` env as well.
@@ -90,3 +89,7 @@ e.g. if you want to use 8549 instead.
 RPC_PORT=8549
 LOCAL_L2_CLIENT_HTTP=http://localhost:8549
 ```
+
+4. `Synchronisation failed, retrying err="element not found"`
+
+It means your l1dtl is syncing, you can just wait for its complete.
