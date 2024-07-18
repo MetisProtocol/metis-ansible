@@ -24,7 +24,7 @@ services:
         max-file: 10
 
   l2geth:
-    image: metisdao/l2geth:v0.3.0
+    image: metisdao/l2geth:v0.2.5
     container_name: l2geth
     restart: unless-stopped
     network_mode: host
