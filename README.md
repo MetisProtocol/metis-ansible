@@ -11,8 +11,8 @@
 
 ### Recommended hardware
 
-1. AWS c5.2xlarge with ipv4 network
-2. 500Gb ebs gp3 with 200 throughput
+1. AWS c5.4xlarge with ipv4 network
+2. 750Gb ebs gp3 with 200 throughput
 3. open 30303 tcp/udp for p2p connections
 
 ### Steps
