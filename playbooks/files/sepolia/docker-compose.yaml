@@ -2,7 +2,7 @@ name: metis-sepolia
 
 services:
   l1dtl:
-    image: metisdao/dtl:v0.1.3
+    image: metisdao/dtl:v0.2.1
     container_name: l1dtl
     restart: unless-stopped
     network_mode: host
@@ -24,7 +24,7 @@ services:
         max-file: 10
 
   l2geth:
-    image: metisdao/l2geth:v0.3.5
+    image: metisdao/l2geth:v0.3.6
     container_name: l2geth
     restart: unless-stopped
     network_mode: host
