@@ -103,3 +103,7 @@ And the blob data are saved in beacon chain nodes, by default, they will be remo
 You can use the latest snapshots or use a larger retention period.
 
 If the snapshot has not been updated for too long time, you can file an issue, and we will update it asap.
+
+6. l1dtl error: response too large
+
+Add command `--rpc.batch-response-max-size=50000000` to your geth rpc node
