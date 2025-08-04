@@ -4,15 +4,15 @@
 
 - Linux (x86_64)
 - docker
-- Ethereum node with full history
+- Ethereum and beacon chain with full history
 - Ansible 9 and Python 3.12
 
 ## Andromeda
 
 ### Recommended hardware
 
-1. AWS c5.4xlarge with ipv4 network
-2. 750Gb ebs gp3 with 200 throughput
+1. AWS c5.2xlarge with ipv4 network
+2. 750Gb ebs gp3
 3. open 30303 tcp/udp for p2p connections
 
 ### Steps
@@ -34,22 +34,22 @@ l1dtl
 
 snap-034b067669773e518
 
-You can use the snapshots on aws **us-east-2** region, and copy them to another region you are using.
+You can get the snapshots on aws **us-east-2** region, and copy them to another region you are using.
 
 ## Sepolia
 
 ### Recommended hardware
 
 1. AWS c5.xlarge with ipv4 network
-2. 50Gb free disk
+2. 100Gb ebs gp3
 3. open 30303 tcp/udp for p2p connections
 
 ### Steps
 
-3. update `hosts.ini` file, add your remote ip and eth sepolia rpc endpoint there
-4. install docker and docker-compose by `ansible-playbook playbooks/docker.yaml`
-5. spin up your sepolia rpc by `ansible-playbook playbooks/sepolia.yaml`
-6. install docker-autoheal by `ansible-playbook playbooks/autoheal.yaml`
+1. update `hosts.ini` file, add your remote ip and eth sepolia rpc endpoint there
+2. install docker and docker-compose by `ansible-playbook playbooks/docker.yaml`
+3. spin up your sepolia rpc by `ansible-playbook playbooks/sepolia.yaml`
+4. install docker-autoheal by `ansible-playbook playbooks/autoheal.yaml`
 
 ### Snapshot
 
@@ -63,7 +63,7 @@ l1dtl
 
 snap-009f6de71936f334b
 
-You can use the snapshots on aws **us-east-1** region, and copy them to another region you are using.
+You can get the snapshots on aws **us-east-1** region, and copy them to another region you are using.
 
 ## FAQ
 
@@ -93,3 +93,13 @@ LOCAL_L2_CLIENT_HTTP=http://localhost:8549
 4. `Synchronisation failed, retrying err="element not found"`
 
 It means your l1dtl is syncing, you can just wait for its completion.
+
+5. Blob data has already expired
+
+Metis uses blob transactions to publish its state and blocks to Ethereum.
+
+And the blob data are saved in beacon chain nodes, by default, they will be removed after 2 weeks for space saving.
+
+You can use the latest snapshots or use a larger retention period.
+
+If the snapshot has not been updated for too long time, you can file an issue, and we will update it asap.
