@@ -32,7 +32,7 @@ snap-0114d80fdd6507d60
 
 l1dtl
 
-snap-0872f395d7a87ea7e
+snap-07e97cf49a60be3aa
 
 You can get the snapshots on aws **us-east-2** region, and copy them to another region you are using.
 
