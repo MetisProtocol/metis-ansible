@@ -2,7 +2,7 @@ name: metis-andromeda
 
 services:
   l1dtl:
-    image: metisdao/dtl:v0.2.5
+    image: metisdao/dtl:v0.2.6
     container_name: l1dtl
     restart: unless-stopped
     network_mode: host
