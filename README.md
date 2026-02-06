@@ -57,7 +57,7 @@ We provided public aws ebs snapshot for you if you need them.
 
 l2geth
 
-snap-00f04f1766958be23
+snap-02a868bbfbafbc292
 
 l1dtl
 
