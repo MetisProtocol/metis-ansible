@@ -28,11 +28,11 @@ We provided public aws ebs snapshot for you if you need them.
 
 l2geth
 
-snap-0114d80fdd6507d60
+snap-0cbbd19f98af482be
 
 l1dtl
 
-snap-0a3a83dc003038ad3
+snap-0368470c8ef5f0813
 
 You can get the snapshots on aws **us-east-2** region, and copy them to another region you are using.
 
